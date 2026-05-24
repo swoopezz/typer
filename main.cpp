@@ -1,11 +1,16 @@
 #include "escape/escape.h"
 #include "tui/Window.h"
 #include "tui/Window.cpp"
+#include <chrono>
 #include <cstdlib>
 #include <iostream>
+#include <iterator>
 #include <ostream>
+#include <sstream>
 #include <string>
 
+
+auto word_count(std::string& str) -> unsigned int;
 auto is_correct_key(std::string& str, char key, int index) -> bool;
 auto change_char_color(tui::Window& w, char c, const char* color, int x, int y) -> void;
 auto write_current_key(tui::Window&, char) -> void;
@@ -14,7 +19,8 @@ auto exit(tui::Window& w) -> void;
 
 int main (int argc, char *argv[]) {
 
-    std::string text = "Very long ewir hewrieshgdsfkg hfgk hdfg sfw hrewihr";
+    std::string text = "every morning teacher going to school after next week";
+    
     tui::Window window = tui::Window();
 
     window.disable_echo();
@@ -23,6 +29,7 @@ int main (int argc, char *argv[]) {
     int text_size = text.size();
     int center_width = (window.get_width() - text_size) / 2;
     int center_height = window.get_height() / 2;
+    auto start_time = std::chrono::system_clock::now().time_since_epoch();
 
     window.clear_screen();
     window.move_cursor(center_width, center_height);
@@ -35,7 +42,9 @@ int main (int argc, char *argv[]) {
     int cursor_x = center_width;
     int cursor_y = center_height;
     int cursor_index = 0; 
-
+   
+    int correct = 0;
+    
     while (true) {
         std::cin >> key;
 
@@ -53,6 +62,7 @@ int main (int argc, char *argv[]) {
         if (is_correct_key(text, key, cursor_index)) {
             change_char_color(window, key, COLOR_BLU, 
                     cursor_x, cursor_y);
+            correct++;
         } else {
             change_char_color(window, key, COLOR_RED, 
                     cursor_x, cursor_y);
@@ -67,8 +77,12 @@ int main (int argc, char *argv[]) {
 
         cursor_index++;
     }
-    const double wpm = 10.0;
-    const double accuracy = 50;
+    auto end_time = std::chrono::system_clock::now().time_since_epoch() - start_time;
+    auto mill = std::chrono::duration_cast<std::chrono::milliseconds>(end_time);
+    const int word = word_count(text);
+    const int wpm = word * 60000 / mill.count();
+    //                                                spaces
+    const int accuracy = correct * 100 / (text_size - word);
     std::cout << "WPM: " << wpm << "; Accuracy: " << accuracy << "%" << std::endl << std::endl;
     
     return 0;
@@ -97,6 +111,14 @@ auto is_correct_key(std::string& str, char key, int index) -> bool {
 auto change_char_color(tui::Window& w, char c, const char* col, int x, int y) -> void {
     w.move_cursor(x - 1, y);
     std::cout << col << c << COLOR_RST;
+}
+
+auto word_count(std::string& text) -> unsigned int {
+    std::stringstream stream(text);
+    return std::distance(
+            std::istream_iterator<std::string>(stream),
+            std::istream_iterator<std::string>()
+    );
 }
 
 auto exit(tui::Window& w) -> void {
