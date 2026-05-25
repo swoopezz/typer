@@ -20,7 +20,9 @@ https://github.com/user-attachments/assets/bc2f80dd-0dce-43f1-a9b7-591aef31a81a
 ```bash
 # Compile
 clang++ -o typer main.cpp tui/Window.cpp
+# make config dir
 mkdir -p ~/.config/typer/
+# copy dict.txt to config dir
 cp dict.txt ~/.config/typer/
 # Run
 ./typer
