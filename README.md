@@ -16,7 +16,9 @@ It displays a line of text; you need to retype it exactly. The program:
 
 ```bash
 # Compile
-clang++ main.cpp -o typer
+clang++ -o typer main.cpp tui/Window.cpp
+mkdir -p ~/.config/typer/
+cp dict.txt ~/.config/typer/
 # Run
 ./typer
 
