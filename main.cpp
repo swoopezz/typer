@@ -1,14 +1,20 @@
 #include "escape/escape.h"
 #include "tui/Window.h"
-#include "tui/Window.cpp"
-#include <chrono>
-#include <cstdlib>
+#include <fstream>
 #include <iostream>
 #include <iterator>
-#include <ostream>
+#include <random>
 #include <sstream>
+#include <stdexcept>
 #include <string>
+#include <vector>
+#include <chrono>
 
+using namespace std::string_literals;
+const std::string DICT_DIR = "/home/user"s + "/.config/typer/dict.txt";
+
+auto read_dict_file(const std::string& path) -> std::vector<std::string>;
+auto generate_text(std::vector<std::string>& word_dict, int) -> std::string;
 
 auto word_count(std::string& str) -> unsigned int;
 auto is_correct_key(std::string& str, char key, int index) -> bool;
@@ -19,7 +25,17 @@ auto exit(tui::Window& w) -> void;
 
 int main (int argc, char *argv[]) {
 
-    std::string text = "every morning teacher going to school after next week";
+    std::string text;
+    std::vector<std::string> dict;
+
+    try { 
+        dict = read_dict_file(DICT_DIR);
+        text = generate_text(dict, 6);
+
+    } catch (std::runtime_error& e) {
+        std::cout << "ERROR: " << e.what();
+        return 1;
+    }
     
     tui::Window window = tui::Window();
 
@@ -84,7 +100,6 @@ int main (int argc, char *argv[]) {
     //                                                spaces
     const int accuracy = correct * 100 / (text_size - word);
     std::cout << "WPM: " << wpm << "; Accuracy: " << accuracy << "%" << std::endl << std::endl;
-    
     return 0;
 }
 
@@ -124,4 +139,48 @@ auto word_count(std::string& text) -> unsigned int {
 auto exit(tui::Window& w) -> void {
     w.exit_alter_screen();
     w.enable_echo();
+}
+
+
+auto read_dict_file(const std::string& path) -> std::vector<std::string> {
+    std::vector<std::string> result;
+    std::ifstream file = std::ifstream(path);
+    
+    if (!file.is_open()) {
+        throw std::runtime_error("Cannot open dict file.");
+    }
+
+    std::string line;
+
+    while (std::getline(file, line)) {
+        result.push_back(line);
+    }
+
+    return result;
+}
+
+auto generate_text(std::vector<std::string>& word_dict, int word_count) -> std::string {
+    if (word_dict.empty()) {
+        throw std::runtime_error("Empty word_dict.");
+    }
+    
+    std::random_device random_device;
+    std::mt19937 mers_enigne = std::mt19937(random_device());
+    std::uniform_int_distribution<int> dist {0, static_cast<int>(word_dict.size() - 1)};
+
+    auto gen = [&dist, &mers_enigne](){
+        return dist(mers_enigne);
+    };
+
+    std::string result; 
+
+    for (int i = 0; i <= word_count; i++) {
+        result += word_dict[gen()];
+
+        if (i != word_count) {
+            result += " ";
+        }
+    }
+    
+    return result;
 }
