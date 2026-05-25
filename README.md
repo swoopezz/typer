@@ -12,6 +12,9 @@ It displays a line of text; you need to retype it exactly. The program:
 
 > ⚠️ This is my **first C++ project**, written for learning purposes. Some parts are rough, and there are known limitations (see below).
 
+### Preview
+https://github.com/user-attachments/assets/bc2f80dd-0dce-43f1-a9b7-591aef31a81a
+
 ### Build & Run
 
 ```bash
