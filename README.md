@@ -24,4 +24,9 @@ mkdir -p ~/.config/typer/
 cp dict.txt ~/.config/typer/
 # Run
 ./typer
+```
 
+### TODO List
+ - global statistic 
+ - rewrite render logic
+ - live statistic
