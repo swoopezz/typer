@@ -1,16 +1,32 @@
 CMakeFiles/typer.dir/src/main.cpp.o: \
  /home/user/Projects/cpp/tui/typer/src/main.cpp \
  /usr/include/stdc-predef.h \
- /home/user/Projects/cpp/tui/typer/include/Content.hpp \
- /home/user/Projects/cpp/tui/typer/include/Element.hpp \
+ /home/user/Projects/cpp/tui/typer/lib/include/window/WinSize.hpp \
+ /usr/include/sys/ioctl.h /usr/include/features.h \
+ /usr/include/features-time64.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/ioctls.h \
+ /usr/include/asm/ioctls.h /usr/include/asm-generic/ioctls.h \
+ /usr/include/linux/ioctl.h /usr/include/asm/ioctl.h \
+ /usr/include/asm-generic/ioctl.h /usr/include/linux/sockios.h \
+ /usr/include/asm/bitsperlong.h /usr/include/asm-generic/bitsperlong.h \
+ /usr/include/asm/sockios.h /usr/include/asm-generic/sockios.h \
+ /usr/include/bits/ioctl-types.h /usr/include/sys/ttydefaults.h \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include/stddef.h \
+ /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
+ /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h \
+ /home/user/Projects/cpp/tui/typer/lib/include/window/Window.hpp \
+ /home/user/Projects/cpp/tui/typer/lib/include/pixel/Pixel.hpp \
+ /home/user/Projects/cpp/tui/typer/lib/include/widget/Widget.hpp \
  /usr/include/c++/16.1.1/string \
  /usr/include/c++/16.1.1/bits/requires_hosted.h \
  /usr/include/c++/16.1.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/16.1.1/x86_64-pc-linux-gnu/bits/os_defines.h \
- /usr/include/features.h /usr/include/features-time64.h \
- /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
- /usr/include/sys/cdefs.h /usr/include/bits/long-double.h \
- /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
  /usr/include/c++/16.1.1/x86_64-pc-linux-gnu/bits/cpu_defines.h \
  /usr/include/c++/16.1.1/pstl/pstl_config.h \
  /usr/include/c++/16.1.1/bits/stringfwd.h \
@@ -20,7 +36,6 @@ CMakeFiles/typer.dir/src/main.cpp.o: \
  /usr/include/c++/16.1.1/bits/postypes.h /usr/include/c++/16.1.1/cwchar \
  /usr/include/wchar.h /usr/include/bits/libc-header-start.h \
  /usr/include/bits/floatn.h /usr/include/bits/floatn-common.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include/stddef.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include/stdarg.h \
  /usr/include/bits/wchar.h /usr/include/bits/types/wint_t.h \
  /usr/include/bits/types/mbstate_t.h \
@@ -50,9 +65,7 @@ CMakeFiles/typer.dir/src/main.cpp.o: \
  /usr/include/c++/16.1.1/clocale /usr/include/locale.h \
  /usr/include/bits/locale.h /usr/include/c++/16.1.1/iosfwd \
  /usr/include/c++/16.1.1/cctype /usr/include/ctype.h \
- /usr/include/bits/types.h /usr/include/bits/typesizes.h \
- /usr/include/bits/time64.h /usr/include/bits/endian.h \
- /usr/include/bits/endianness.h \
+ /usr/include/bits/endian.h /usr/include/bits/endianness.h \
  /usr/include/c++/16.1.1/bits/ostream_insert.h \
  /usr/include/c++/16.1.1/bits/cxxabi_forced.h \
  /usr/include/c++/16.1.1/bits/stl_iterator.h \
@@ -133,8 +146,7 @@ CMakeFiles/typer.dir/src/main.cpp.o: \
  /usr/include/pthread.h /usr/include/sched.h /usr/include/bits/sched.h \
  /usr/include/linux/sched/types.h /usr/include/linux/types.h \
  /usr/include/asm/types.h /usr/include/asm-generic/types.h \
- /usr/include/asm-generic/int-ll64.h /usr/include/asm/bitsperlong.h \
- /usr/include/asm-generic/bitsperlong.h /usr/include/linux/posix_types.h \
+ /usr/include/asm-generic/int-ll64.h /usr/include/linux/posix_types.h \
  /usr/include/linux/stddef.h /usr/include/asm/posix_types.h \
  /usr/include/asm/posix_types_64.h /usr/include/asm-generic/posix_types.h \
  /usr/include/bits/types/struct_sched_param.h /usr/include/bits/cpu-set.h \
@@ -181,10 +193,4 @@ CMakeFiles/typer.dir/src/main.cpp.o: \
  /usr/include/c++/16.1.1/vector /usr/include/c++/16.1.1/bits/stl_vector.h \
  /usr/include/c++/16.1.1/bits/stl_bvector.h \
  /usr/include/c++/16.1.1/bits/vector.tcc \
- /home/user/Projects/cpp/tui/typer/include/WinSize.hpp \
- /home/user/Projects/cpp/tui/typer/include/Window.hpp \
- /home/user/Projects/cpp/tui/typer/src/elements/Text.cpp \
- /usr/include/c++/16.1.1/iostream /usr/include/c++/16.1.1/ostream \
- /usr/include/c++/16.1.1/bits/ostream_print.h \
- /usr/include/c++/16.1.1/bits/ostream.tcc /usr/include/c++/16.1.1/istream \
- /usr/include/c++/16.1.1/bits/istream.tcc
+ /home/user/Projects/cpp/tui/typer/lib/include/elements/Elements.hpp

@@ -1,3 +1,6 @@
 /home/user/Projects/cpp/tui/typer/build/CMakeFiles/typer.dir
 /home/user/Projects/cpp/tui/typer/build/CMakeFiles/edit_cache.dir
 /home/user/Projects/cpp/tui/typer/build/CMakeFiles/rebuild_cache.dir
+/home/user/Projects/cpp/tui/typer/build/lib/CMakeFiles/tui_lib.dir
+/home/user/Projects/cpp/tui/typer/build/lib/CMakeFiles/edit_cache.dir
+/home/user/Projects/cpp/tui/typer/build/lib/CMakeFiles/rebuild_cache.dir

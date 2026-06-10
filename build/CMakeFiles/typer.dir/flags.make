@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/user/Projects/cpp/tui/typer/include
+CXX_INCLUDES = -I/home/user/Projects/cpp/tui/typer/lib/include/elements -I/home/user/Projects/cpp/tui/typer/lib/include/pixel -I/home/user/Projects/cpp/tui/typer/lib/include/widget -I/home/user/Projects/cpp/tui/typer/lib/include/window
 
-CXX_FLAGS = -std=gnu++20
+CXX_FLAGS = -g -std=gnu++20
 

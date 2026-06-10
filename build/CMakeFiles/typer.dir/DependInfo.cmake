@@ -8,8 +8,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/user/Projects/cpp/tui/typer/src/Window.cpp" "CMakeFiles/typer.dir/src/Window.cpp.o" "gcc" "CMakeFiles/typer.dir/src/Window.cpp.o.d"
-  "/home/user/Projects/cpp/tui/typer/src/elements/Text.cpp" "CMakeFiles/typer.dir/src/elements/Text.cpp.o" "gcc" "CMakeFiles/typer.dir/src/elements/Text.cpp.o.d"
   "/home/user/Projects/cpp/tui/typer/src/main.cpp" "CMakeFiles/typer.dir/src/main.cpp.o" "gcc" "CMakeFiles/typer.dir/src/main.cpp.o.d"
   "" "typer" "gcc" "CMakeFiles/typer.dir/link.d"
   )

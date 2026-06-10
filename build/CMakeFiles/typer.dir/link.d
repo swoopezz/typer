@@ -2,9 +2,8 @@ typer: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o \
-  CMakeFiles/typer.dir/src/Window.cpp.o \
-  CMakeFiles/typer.dir/src/elements/Text.cpp.o \
   CMakeFiles/typer.dir/src/main.cpp.o \
+  lib/libtui_lib.a \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libstdc++.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libm.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libm.so \
@@ -43,11 +42,9 @@ typer: \
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o:
 
-CMakeFiles/typer.dir/src/Window.cpp.o:
-
-CMakeFiles/typer.dir/src/elements/Text.cpp.o:
-
 CMakeFiles/typer.dir/src/main.cpp.o:
+
+lib/libtui_lib.a:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libstdc++.so:
 

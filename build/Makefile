@@ -129,53 +129,18 @@ typer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/typer.dir/build.make CMakeFiles/typer.dir/build
 .PHONY : typer/fast
 
-src/Window.o: src/Window.cpp.o
-.PHONY : src/Window.o
+#=============================================================================
+# Target rules for targets named tui_lib
 
-# target to build an object file
-src/Window.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/typer.dir/build.make CMakeFiles/typer.dir/src/Window.cpp.o
-.PHONY : src/Window.cpp.o
+# Build rule for target.
+tui_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tui_lib
+.PHONY : tui_lib
 
-src/Window.i: src/Window.cpp.i
-.PHONY : src/Window.i
-
-# target to preprocess a source file
-src/Window.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/typer.dir/build.make CMakeFiles/typer.dir/src/Window.cpp.i
-.PHONY : src/Window.cpp.i
-
-src/Window.s: src/Window.cpp.s
-.PHONY : src/Window.s
-
-# target to generate assembly for a file
-src/Window.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/typer.dir/build.make CMakeFiles/typer.dir/src/Window.cpp.s
-.PHONY : src/Window.cpp.s
-
-src/elements/Text.o: src/elements/Text.cpp.o
-.PHONY : src/elements/Text.o
-
-# target to build an object file
-src/elements/Text.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/typer.dir/build.make CMakeFiles/typer.dir/src/elements/Text.cpp.o
-.PHONY : src/elements/Text.cpp.o
-
-src/elements/Text.i: src/elements/Text.cpp.i
-.PHONY : src/elements/Text.i
-
-# target to preprocess a source file
-src/elements/Text.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/typer.dir/build.make CMakeFiles/typer.dir/src/elements/Text.cpp.i
-.PHONY : src/elements/Text.cpp.i
-
-src/elements/Text.s: src/elements/Text.cpp.s
-.PHONY : src/elements/Text.s
-
-# target to generate assembly for a file
-src/elements/Text.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/typer.dir/build.make CMakeFiles/typer.dir/src/elements/Text.cpp.s
-.PHONY : src/elements/Text.cpp.s
+# fast build rule for target.
+tui_lib/fast:
+	$(MAKE) $(MAKESILENT) -f lib/CMakeFiles/tui_lib.dir/build.make lib/CMakeFiles/tui_lib.dir/build
+.PHONY : tui_lib/fast
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -209,13 +174,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... tui_lib"
 	@echo "... typer"
-	@echo "... src/Window.o"
-	@echo "... src/Window.i"
-	@echo "... src/Window.s"
-	@echo "... src/elements/Text.o"
-	@echo "... src/elements/Text.i"
-	@echo "... src/elements/Text.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

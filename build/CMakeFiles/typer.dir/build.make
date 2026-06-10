@@ -72,38 +72,10 @@ include CMakeFiles/typer.dir/flags.make
 CMakeFiles/typer.dir/codegen:
 .PHONY : CMakeFiles/typer.dir/codegen
 
-CMakeFiles/typer.dir/src/Window.cpp.o: CMakeFiles/typer.dir/flags.make
-CMakeFiles/typer.dir/src/Window.cpp.o: /home/user/Projects/cpp/tui/typer/src/Window.cpp
-CMakeFiles/typer.dir/src/Window.cpp.o: CMakeFiles/typer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/Projects/cpp/tui/typer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/typer.dir/src/Window.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/typer.dir/src/Window.cpp.o -MF CMakeFiles/typer.dir/src/Window.cpp.o.d -o CMakeFiles/typer.dir/src/Window.cpp.o -c /home/user/Projects/cpp/tui/typer/src/Window.cpp
-
-CMakeFiles/typer.dir/src/Window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/typer.dir/src/Window.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/Projects/cpp/tui/typer/src/Window.cpp > CMakeFiles/typer.dir/src/Window.cpp.i
-
-CMakeFiles/typer.dir/src/Window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/typer.dir/src/Window.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/Projects/cpp/tui/typer/src/Window.cpp -o CMakeFiles/typer.dir/src/Window.cpp.s
-
-CMakeFiles/typer.dir/src/elements/Text.cpp.o: CMakeFiles/typer.dir/flags.make
-CMakeFiles/typer.dir/src/elements/Text.cpp.o: /home/user/Projects/cpp/tui/typer/src/elements/Text.cpp
-CMakeFiles/typer.dir/src/elements/Text.cpp.o: CMakeFiles/typer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/Projects/cpp/tui/typer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/typer.dir/src/elements/Text.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/typer.dir/src/elements/Text.cpp.o -MF CMakeFiles/typer.dir/src/elements/Text.cpp.o.d -o CMakeFiles/typer.dir/src/elements/Text.cpp.o -c /home/user/Projects/cpp/tui/typer/src/elements/Text.cpp
-
-CMakeFiles/typer.dir/src/elements/Text.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/typer.dir/src/elements/Text.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/Projects/cpp/tui/typer/src/elements/Text.cpp > CMakeFiles/typer.dir/src/elements/Text.cpp.i
-
-CMakeFiles/typer.dir/src/elements/Text.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/typer.dir/src/elements/Text.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/Projects/cpp/tui/typer/src/elements/Text.cpp -o CMakeFiles/typer.dir/src/elements/Text.cpp.s
-
 CMakeFiles/typer.dir/src/main.cpp.o: CMakeFiles/typer.dir/flags.make
 CMakeFiles/typer.dir/src/main.cpp.o: /home/user/Projects/cpp/tui/typer/src/main.cpp
 CMakeFiles/typer.dir/src/main.cpp.o: CMakeFiles/typer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/Projects/cpp/tui/typer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/typer.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/Projects/cpp/tui/typer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/typer.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/typer.dir/src/main.cpp.o -MF CMakeFiles/typer.dir/src/main.cpp.o.d -o CMakeFiles/typer.dir/src/main.cpp.o -c /home/user/Projects/cpp/tui/typer/src/main.cpp
 
 CMakeFiles/typer.dir/src/main.cpp.i: cmake_force
@@ -116,20 +88,17 @@ CMakeFiles/typer.dir/src/main.cpp.s: cmake_force
 
 # Object files for target typer
 typer_OBJECTS = \
-"CMakeFiles/typer.dir/src/Window.cpp.o" \
-"CMakeFiles/typer.dir/src/elements/Text.cpp.o" \
 "CMakeFiles/typer.dir/src/main.cpp.o"
 
 # External object files for target typer
 typer_EXTERNAL_OBJECTS =
 
-typer: CMakeFiles/typer.dir/src/Window.cpp.o
-typer: CMakeFiles/typer.dir/src/elements/Text.cpp.o
 typer: CMakeFiles/typer.dir/src/main.cpp.o
 typer: CMakeFiles/typer.dir/build.make
 typer: CMakeFiles/typer.dir/compiler_depend.ts
+typer: lib/libtui_lib.a
 typer: CMakeFiles/typer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/user/Projects/cpp/tui/typer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable typer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/user/Projects/cpp/tui/typer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable typer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/typer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
