@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/user/Projects/cpp/tui/typer/build",
+  "command": "/usr/bin/c++  -I/home/user/Projects/cpp/tui/typer/include -std=gnu++20 -o CMakeFiles/typer.dir/src/Window.cpp.o -c /home/user/Projects/cpp/tui/typer/src/Window.cpp",
+  "file": "/home/user/Projects/cpp/tui/typer/src/Window.cpp",
+  "output": "CMakeFiles/typer.dir/src/Window.cpp.o"
+},
+{
+  "directory": "/home/user/Projects/cpp/tui/typer/build",
+  "command": "/usr/bin/c++  -I/home/user/Projects/cpp/tui/typer/include -std=gnu++20 -o CMakeFiles/typer.dir/src/elements/Text.cpp.o -c /home/user/Projects/cpp/tui/typer/src/elements/Text.cpp",
+  "file": "/home/user/Projects/cpp/tui/typer/src/elements/Text.cpp",
+  "output": "CMakeFiles/typer.dir/src/elements/Text.cpp.o"
+},
+{
+  "directory": "/home/user/Projects/cpp/tui/typer/build",
+  "command": "/usr/bin/c++  -I/home/user/Projects/cpp/tui/typer/include -std=gnu++20 -o CMakeFiles/typer.dir/src/main.cpp.o -c /home/user/Projects/cpp/tui/typer/src/main.cpp",
+  "file": "/home/user/Projects/cpp/tui/typer/src/main.cpp",
+  "output": "CMakeFiles/typer.dir/src/main.cpp.o"
+}
+]

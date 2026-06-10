@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/user/Projects/cpp/tui/typer/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
