@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/typer.dir/link.d CMakeFiles/typer.dir/src/main.cpp.o -o typer  lib/libtui_lib.a

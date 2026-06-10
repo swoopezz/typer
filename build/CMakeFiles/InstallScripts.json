@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/user/Projects/cpp/tui/typer/build/cmake_install.cmake",
-		"/home/user/Projects/cpp/tui/typer/build/lib/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
