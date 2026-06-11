@@ -10,8 +10,6 @@ namespace tui {
 
 class Widget;
 
-using Element = std::shared_ptr<Widget>;
-using Elements = std::vector<Element>;
 using WinSize = std::shared_ptr<size::WinSize>;
 
 class Window {

@@ -14,7 +14,7 @@ namespace tui {
 		}
 	}
 
-	const std::string& TextWidget::toString() const {
-		return "todo";
+	std::string TextWidget::toString() const {
+		return text;
 	}
 }
