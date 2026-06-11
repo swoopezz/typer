@@ -19,7 +19,7 @@ private:
 	
 	std::vector<Pixel> content;
 public:
-	
+	Window(): sz(std::make_shared<size::FullScreen>()){};
 	Window(WinSize);
 
 	int getWidth();
@@ -29,7 +29,7 @@ public:
 
 	void setContent(std::initializer_list<Element> content);
 	void setContent(Elements& content);
-
+	
 	void render();
 	const std::string& toString() const;
 	

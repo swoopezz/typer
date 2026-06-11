@@ -1,11 +1,9 @@
+#include "Window.hpp"
 #include <CenterWidget.hpp>
-#include <stdexcept>
-#include <string>
-#include <vector>
 
 namespace tui {
 
-	CenterWidget::CenterWidget(Element& element) : element(element){}
+	CenterWidgetX::CenterWidgetX(Element& element) : element(element){}
 
 	std::string padding(const std::string& str, int padd) {
 		const int newSize = str.size() + (padd * 2);
@@ -23,14 +21,14 @@ namespace tui {
 	}
 
 
-	void CenterWidget::render(Window& w, int& x, int& y) {
-		std::string str = element->toString();
-		
-		for (int i = 0; i < str.size(); i+= w.getWidth()) {
-			for (char ch : center(str.substr(i, w.getWidth()), w.getWidth())) {
+	void CenterWidgetX::render(Window& w, int& x, int& y) {
+		std::string str = element->toString(w);
+		int cachedWidth = w.getWidth();	
+		for (int i = 0; i < str.size(); i+= cachedWidth) {
+			for (char ch : center(str.substr(i, cachedWidth), cachedWidth)) {
 				w.pixelAt(x, y).pixelContent = ch;	
 				x++;
-				if (x > w.getWidth()) {
+				if (x >= cachedWidth && y < w.getHeight()) {
 					x = 0;
 					y += 1;
 				}
@@ -39,8 +37,27 @@ namespace tui {
 
 	}	
 
-	// fix: get window width 
-	std::string CenterWidget::toString() const {
-		return center(element->toString(), 50);
+	std::string CenterWidgetX::toString(Window& w) const {
+		return center(element->toString(w), w.getWidth());
 	}
-}
+
+	
+	CenterWidgetY::CenterWidgetY(Element& element) : element(element){}
+
+	void CenterWidgetY::render(Window& w, int& x, int& y) {
+		y = w.getHeight() / 2;
+
+		for (char ch : element->toString(w)) {
+			w.pixelAt(x, y).pixelContent = ch;	
+			x++;
+			if (x >= w.getWidth() && y < w.getHeight()) {
+				x = 0;
+				y += 1;
+			}
+		}
+	}
+
+	std::string tui::CenterWidgetY::toString(tui::Window& w) const {
+		return element->toString(w);		
+	}
+}	

@@ -1,19 +1,38 @@
+#include "Elements.hpp"
 #include "WinSize.hpp"
 #include "Window.hpp"
-#include "Elements.hpp"
+#include "Util.hpp"
+#include <memory>
 
 int main() {	
 	
 	using namespace tui;
 
 	Window window = Window(std::make_shared<size::FullScreen>());
+	const std::string generated = "";
+
 	
 	window.setContent({
-		centerX(text("im centered")),
-		centerX(text("Second texwot six seven eight forty tfasljfalk fj;jdfdsafas")),
-		text("Forty two eleven six twelve")
+			centerY(centerX(text("KeyboardChad")))
 	});
 
 	window.render();
+/*		
+	char key;
+
+	util::enableAlterScr();
+	util::hideCursor();
+
+	while (true) {
+		window.render();
+		
+		key = util::getch();
+		if (key == 27 || key == 3) {
+			util::disablAnterScr();
+			util::showCursor();
+			break;
+		}
+	}
+*/
 	return 0;
 }

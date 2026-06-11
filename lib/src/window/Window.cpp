@@ -30,14 +30,17 @@ namespace tui {
 	}
 	
 	void Window::render() {
-
+		
 		int x = 0;
-		int y = 0;
+		int y = 1;
 
 		for (int i = 0; i < elements.size(); i++) {
 			elements[i]->render(*this, x, y);
+
+			if (y <= getHeight()) {
+				y += 1;
+			}
 			x = 0;
-			y += 1;
 		}
 
 		for (const Pixel& p : content) {

@@ -6,14 +6,23 @@
 
 namespace tui {
 
-class CenterWidget : public Widget {
+class CenterWidgetX : public Widget {
 private:
 	const Element element;
 public:
-	CenterWidget(Element& element);
+	CenterWidgetX(Element& element);
 	void render(Window& w, int& x, int& y) override;
-	virtual std::string toString() const override;
-	~CenterWidget() {}
+	std::string toString(Window& w) const override;
+	~CenterWidgetX() {}
 };
 
+class CenterWidgetY : public Widget {
+private:
+	const Element element;	
+public:
+	CenterWidgetY(Element& element);
+	void render(Window& w, int& x, int& y) override;
+ 	std::string toString(Window& w) const override;
+	~CenterWidgetY() {}
+};
 }

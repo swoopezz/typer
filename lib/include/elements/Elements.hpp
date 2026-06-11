@@ -12,9 +12,5 @@ using Elements = std::vector<Element>;
 Element text(const std::string&);
 
 Element centerX(Element);
-Element centerY(Element&);
-
-Element padding(Element&, int);
-Element padding(Element&, int, int);
-
+Element centerY(Element);
 }

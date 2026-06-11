@@ -14,7 +14,7 @@ namespace tui {
 		}
 	}
 
-	std::string TextWidget::toString() const {
+	std::string TextWidget::toString(Window& w) const {
 		return text;
 	}
 }
