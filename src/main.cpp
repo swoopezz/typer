@@ -18,13 +18,7 @@ int main() {
 
 		centerX(text("TyperChad")),
 		separator(),
-		separator(),
-		separator(),
-		separator(),
 		centerX(text(generated)),	
-
-		separator(),
-		separator(),
 		text("press esc to exit")
 	});
 
