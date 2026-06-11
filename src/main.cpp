@@ -9,15 +9,25 @@ int main() {
 	using namespace tui;
 
 	Window window = Window(std::make_shared<size::FullScreen>());
-	const std::string generated = "";
-
+	const std::string generated = 
+		"some text edit fact new object "
+		"light window crow elbrus cow "
+		"comma delete fork evil corporation";
 	
 	window.setContent({
-			centerY(centerX(text("KeyboardChad")))
+
+		centerX(text("TyperChad")),
+		separator(),
+		separator(),
+		separator(),
+		separator(),
+		centerX(text(generated)),	
+
+		separator(),
+		separator(),
+		text("press esc to exit")
 	});
 
-	window.render();
-/*		
 	char key;
 
 	util::enableAlterScr();
@@ -27,12 +37,11 @@ int main() {
 		window.render();
 		
 		key = util::getch();
-		if (key == 27 || key == 3) {
+		if (key == 27) {
 			util::disablAnterScr();
 			util::showCursor();
 			break;
 		}
 	}
-*/
 	return 0;
 }

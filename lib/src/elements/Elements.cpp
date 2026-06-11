@@ -1,4 +1,5 @@
 #include "CenterWidget.hpp"
+#include "Separator.hpp"
 #include "TextWidget.hpp"
 #include <Elements.hpp>
 #include <memory>
@@ -15,7 +16,12 @@ namespace tui {
 	Element centerY(Element elem) {
 		return std::make_shared<CenterWidgetY>(elem);
 	}
+	
+	Element centerABS(Element elem) {
+		return centerY(centerX(elem));
+	}
 
-	Element padding(Element&, int);
-	Element padding(Element&, int, int);
+	Element separator() {
+		return std::make_shared<Separator>();
+	}
 }

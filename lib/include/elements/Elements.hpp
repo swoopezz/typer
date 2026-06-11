@@ -13,4 +13,8 @@ Element text(const std::string&);
 
 Element centerX(Element);
 Element centerY(Element);
+Element centerABS(Element);
+
+Element separator();
+
 }

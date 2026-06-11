@@ -1,5 +1,7 @@
 #include "Window.hpp"
 #include <CenterWidget.hpp>
+#include <stdexcept>
+#include <string>
 
 namespace tui {
 
@@ -15,7 +17,7 @@ namespace tui {
 
 	 std::string center(const std::string& str, int width) {
 		if (str.size() > width)
-			throw std::runtime_error("center: str is too long");
+			throw std::runtime_error("Resize you terminal! Required width = " + std::to_string(str.size()) + " current: " + std::to_string(width));
 
 		return padding(str, (width - str.size()) / 2);	
 	}
@@ -57,7 +59,7 @@ namespace tui {
 		}
 	}
 
-	std::string tui::CenterWidgetY::toString(tui::Window& w) const {
+	std::string CenterWidgetY::toString(tui::Window& w) const {
 		return element->toString(w);		
 	}
 }	

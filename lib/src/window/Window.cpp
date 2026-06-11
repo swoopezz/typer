@@ -34,6 +34,9 @@ namespace tui {
 		int x = 0;
 		int y = 1;
 
+		content.clear();
+		content = std::vector<Pixel>(sz->get_width() * sz->get_height());
+
 		for (int i = 0; i < elements.size(); i++) {
 			elements[i]->render(*this, x, y);
 
