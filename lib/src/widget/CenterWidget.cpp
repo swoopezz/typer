@@ -49,14 +49,7 @@ namespace tui {
 	void CenterWidgetY::render(Window& w, int& x, int& y) {
 		y = w.getHeight() / 2;
 
-		for (char ch : element->toString(w)) {
-			w.pixelAt(x, y).pixelContent = ch;	
-			x++;
-			if (x >= w.getWidth() && y < w.getHeight()) {
-				x = 0;
-				y += 1;
-			}
-		}
+		element->render(w, x, y);
 	}
 
 	std::string CenterWidgetY::toString(tui::Window& w) const {

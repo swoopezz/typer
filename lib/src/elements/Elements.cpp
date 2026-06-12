@@ -1,3 +1,4 @@
+#include "Buttom.hpp"
 #include "CenterWidget.hpp"
 #include "Separator.hpp"
 #include "TextWidget.hpp"
@@ -23,5 +24,9 @@ namespace tui {
 
 	Element separator() {
 		return std::make_shared<Separator>();
+	}
+	
+	Element buttom(Element elem) {
+		return std::make_shared<Buttom>(elem);
 	}
 }

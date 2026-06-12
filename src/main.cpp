@@ -15,11 +15,11 @@ int main() {
 		"comma delete fork evil corporation";
 	
 	window.setContent({
+		centerX(text("KeyboardChad")),
 
-		centerX(text("TyperChad")),
-		separator(),
-		centerX(text(generated)),	
-		text("press esc to exit")
+		centerABS(text(generated)),
+
+		buttom(centerX(text("[esc] exit    [enter] restart")))
 	});
 
 	char key;

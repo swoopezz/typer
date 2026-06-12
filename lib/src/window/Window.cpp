@@ -10,7 +10,10 @@ namespace tui {
 	Window::Window(WinSize size) : 
 		sz(size), 
 		content(size->get_width() * size->get_height()), 
-		elements({}) {}
+		elements({}) {
+			lastWidht  = size->get_width();
+			lastHeight = size->get_height();
+		}
 
 	int Window::getWidth() {
 		return sz->get_width();
@@ -20,8 +23,12 @@ namespace tui {
 		return sz->get_height();
 	}
 
-	Pixel& Window::pixelAt(int x, int y) {
-		
+	bool Window::needUpdate() {
+		return !(lastWidht  == sz->get_width()
+			  && lastHeight == sz->get_height());
+	}
+
+	Pixel& Window::pixelAt(int x, int y) {	
 		int loc = (sz->get_width() * y) + x;
 		if (loc >= content.size())
 			throw std::runtime_error("pixelAt: out of range!");
@@ -29,27 +36,24 @@ namespace tui {
 		return content[loc];
 	}
 	
-	void Window::render() {
+	void Window::render() {	
+		int x = 0; int y = 1;
+
+		if (needUpdate()) {
+			content.clear();
+			content = std::vector<Pixel>(sz->get_width()*sz->get_height());
+
+			pixelAt(1, 1).pixelContent = 'U';
+		} 
+		lastWidht = sz->get_width(); lastHeight = sz->get_height();
 		
-		int x = 0;
-		int y = 1;
-
-		content.clear();
-		content = std::vector<Pixel>(sz->get_width() * sz->get_height());
-
 		for (int i = 0; i < elements.size(); i++) {
 			elements[i]->render(*this, x, y);
-
-			if (y <= getHeight()) {
-				y += 1;
-			}
+			if (y <= getHeight()) y += 1;
+			
 			x = 0;
 		}
-
-		for (const Pixel& p : content) {
-			std::cout << p.pixelContent;
-		}	
-
+		for (const Pixel& p : content) std::cout << p.pixelContent;
 		std::cout << std::endl;
 	}
 

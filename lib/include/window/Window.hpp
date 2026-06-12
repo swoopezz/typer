@@ -18,6 +18,9 @@ private:
 	WinSize sz;
 	
 	std::vector<Pixel> content;
+
+	int lastWidht  = 0;
+	int lastHeight = 0;
 public:
 	Window(): sz(std::make_shared<size::FullScreen>()){};
 	Window(WinSize);
@@ -25,6 +28,7 @@ public:
 	int getWidth();
 	int getHeight();
 	
+	bool needUpdate();
 	Pixel& pixelAt(int x, int y);
 
 	void setContent(std::initializer_list<Element> content);
