@@ -15,6 +15,7 @@ private:
 public:
 	Input(const std::string& text);
 	void render(Window& w, int& x, int& y) override;
+	bool isEnd();
 	virtual std::string toString(Window& w) const override;
 	void press(Window& w, char c);
 	~Input() {}

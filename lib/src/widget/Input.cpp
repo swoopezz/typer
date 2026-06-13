@@ -48,7 +48,9 @@ namespace tui {
 		cursorPosition++;
 		input += c;
 	}
-
+	bool Input::isEnd() {
+		return input.size() == text.size() - 1;
+	}
 	std::string Input::toString(Window& w) const {
 		return text;
 	}
