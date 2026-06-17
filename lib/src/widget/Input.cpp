@@ -1,9 +1,43 @@
 #include <Window.hpp>
 #include <Input.hpp>
+#include <chrono>
+#include <iterator>
 
 namespace tui {
 	Input::Input(const std::string& text) : text(text){};
 
+	long Input::startTime() {
+		return startTimeMs;
+	}
+	
+	int wordCount(const std::string& input) {
+		std::stringstream stream(input);
+    	return std::distance(std::istream_iterator<std::string>(stream),
+				std::istream_iterator<std::string>());
+	}
+
+	double Input::getWpm() {
+		using namespace std::chrono;
+
+		if (startTimeMs == 0) return 0;
+
+		return ((double) wordCount(input) / (
+			(duration_cast<milliseconds>(
+				system_clock::now().time_since_epoch()).count() / 60000.0
+			) - (startTimeMs / 60000.0) ));
+	}
+
+	long Input::endTime() {
+		return endTimeMs;
+	}
+
+	int Input::getMissCount() {
+		return missCount;
+	}
+
+	const std::string& Input::getText() const {
+		return text;
+	}
 	void Input::inputLogic(Window& w, int current, int x, int y) {
 		if (current == cursorPosition) {
 			w.pixelAt(x, y).isUnderl = true;
@@ -17,8 +51,10 @@ namespace tui {
 		
 		if (text[current] == input[current])
 			w.pixelAt(x, y).isBold = true;
-		else 
+		else {
 			w.pixelAt(x, y).isStrike = true;
+			missCount++;
+		}
 	}
 
 	void Input::render(Window& w, int& x, int& y) {
@@ -36,6 +72,11 @@ namespace tui {
 	}
 
 	void Input::press(Window& w, char c) {
+		using namespace std::chrono;
+		if (startTimeMs == 0)
+			startTimeMs = duration_cast<milliseconds>
+				(system_clock::now().time_since_epoch()).count();
+
 		if (cursorPosition == text.size() - 1)
 			return;
 		
@@ -49,7 +90,15 @@ namespace tui {
 		input += c;
 	}
 	bool Input::isEnd() {
-		return input.size() == text.size() - 1;
+		using namespace std::chrono;
+		bool end = input.size() == text.size() - 1;
+
+		if (end) {
+			endTimeMs = duration_cast<milliseconds>
+				(system_clock::now().time_since_epoch()).count();
+			return true;
+		} else return false;
+
 	}
 	std::string Input::toString(Window& w) const {
 		return text;

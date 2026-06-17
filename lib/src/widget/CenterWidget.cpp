@@ -14,18 +14,19 @@ namespace tui {
 		return result;
 	}
 
-	 std::string center(const std::string& str, int width) {
-		return padding(str, (width - str.size()) / 2);	
+	std::string center(const std::string& str, int width) {
+		return padding(str, (width - str.size()) / 2);
 	}
 
 	void CenterWidgetX::render(Window& w, int& x, int& y) {
 		int size = element->toString(w).size();
 
-		if (x < w.getWidth()) {	
+		if (w.getWidth() > size) {	
 			x = (w.getWidth() - size) / 2;
 			element->render(w, x, y);
 		} else {
-			// TODO
+			x = 0;
+			element->render(w, x, y);
 		}
 	}	
 
