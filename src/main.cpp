@@ -1,8 +1,6 @@
 #include "Elements.hpp"
-#include "WinSize.hpp"
 #include "Window.hpp"
 #include "Util.hpp"
-#include "Input.hpp"
 
 using namespace tui;
 int main() {	

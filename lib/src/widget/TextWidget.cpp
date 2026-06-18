@@ -9,8 +9,7 @@ namespace tui {
 			w.pixelAt(x, y).pixelContent = ch;
 			x++;
 			if (x > w.getWidth()) {
-				x = 0;
-				y += 1;
+				x = 0; y += 1;
 			}
 		}
 	}

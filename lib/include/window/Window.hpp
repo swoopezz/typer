@@ -11,7 +11,6 @@ namespace tui {
 class Widget;
 
 using WinSize = std::shared_ptr<size::WinSize>;
-
 class Window {
 private:
 	Elements elements;
@@ -22,7 +21,6 @@ private:
 	int lastWidht  = 0;
 	int lastHeight = 0;
 public:
-	Window(): sz(std::make_shared<size::FullScreen>()){};
 	Window(WinSize);
 
 	int getWidth();
