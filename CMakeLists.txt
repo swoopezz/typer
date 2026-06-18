@@ -1,6 +1,6 @@
 
 cmake_minimum_required(VERSION 3.16)
-project(typer VERSION 1.1)
+project(kbchad VERSION 1.1)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -9,7 +9,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_subdirectory(lib)
 file(GLOB SOURCES src/*.cpp)
 add_executable(
-    typer
+	${PROJECT_NAME}
     ${SOURCES}
 )
 
