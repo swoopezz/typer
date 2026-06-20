@@ -4,6 +4,7 @@
 #include "Window.hpp"
 #include "Util.hpp"
 #include "Dict.hpp"
+#include "Keys.hpp"
 #include <filesystem>
 #include <memory>
 #include <optional>
@@ -48,7 +49,7 @@ void initSettings() {
 
 using namespace tui;
 int main() {	
-	/*if (!fileExists(getHome()->string() + "/.local/share/kbchad"))
+	if (!fileExists(getHome()->string() + "/.local/share/kbchad"))
         initSettings();
 
 	auto window= Window(std::make_shared<size::FullScreen>());
@@ -81,9 +82,9 @@ int main() {
 			continue;
 		}
 		input->press(ch);
-	}*/
+	}
 
-    auto window = Window(std::make_shared<size::FullScreen>());
+/*    auto window = Window(std::make_shared<size::FullScreen>());
     window.setContent({
         graphic({1, 2, 3, 4, 5, 6, 7})
     });
@@ -91,5 +92,6 @@ int main() {
     window.render();
 
 	return 0;
+*/
 }
 
