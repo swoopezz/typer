@@ -6,7 +6,7 @@ namespace tui {
 
 class Input: public Widget {
 private:
-	const std::string hint; 
+	std::string hint; 
 
 	int cursorPosition = 0;
 	std::string input = "";
@@ -23,7 +23,7 @@ public:
 	int getHeight() override;
 
 	const std::string& getText() const { return input; };
-
+	void updateInput(const std::string& newHint);
 	~Input() {}
 };
 }

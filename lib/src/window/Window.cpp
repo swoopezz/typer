@@ -57,6 +57,12 @@ namespace tui {
 					sz->get_width()*sz->get_height()
 			);
 		} 
+
+		for (auto& pixel : content) {
+			pixel.clearStyles();
+			pixel.pixelContent = ' ';
+		}
+
 		lastWidht = sz->get_width();
 		lastHeight = sz->get_height();
 		

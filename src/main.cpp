@@ -3,15 +3,36 @@
 #include "Keys.hpp"
 #include "Window.hpp"
 #include "Util.hpp"
+#include "Dict.hpp"
 #include <memory>
+
+std::string generate(Dict& dict, int len) {
+	std::string words;
+
+	for (int i = 0; i <= len; i++) {
+		if (i == len) {
+			words.append(dict.randomWord());
+			continue;
+		}
+		std::string space = dict.randomWord() + " ";
+		words.append(space);
+	}
+
+	return words;
+}
 
 using namespace tui;
 int main() {	
-	
+		
 	auto window = Window(std::make_shared<size::FullScreen>());
-	auto input = std::make_shared<Input>("please enter the text");
+	Dict dict = Dict("/home/user/.dict.txt");	
+
+	auto input = std::make_shared<Input>(generate(dict, 10));
+
 	window.setContent({
-		input | centerX | centerY
+		text("KeyboadChad") | centerX,
+		input | centerX | centerY,
+		text("[esc] exit [entr] restart") | centerX | buttom
 	});
 	
 	util::enableAlterScr();
@@ -24,6 +45,11 @@ int main() {
 			util::disablAnterScr();
 			util::showCursor();
 			break;
+		}
+
+		if (ch == Key::ENTER) {
+			input->updateInput(generate(dict, 10));	
+			continue;
 		}
 		input->press(ch);
 	}

@@ -48,7 +48,7 @@ namespace tui {
 	
 	void Input::press(char key) {
 		if (isEnd()) return;
-
+		
 		switch (key) {
 			case Key::BACKSPACE:
 				if (!input.empty() && cursorPosition > 0) {
@@ -78,7 +78,12 @@ namespace tui {
 				break;
 		}	
 	}
-	
+	void Input::updateInput(const std::string& newHint) {
+		hint = newHint;
+		cursorPosition = 0;
+		input = "";
+		end = false;
+	}
 	bool Input::isEnd() { return end; }
 	int Input::getHeight() { return hint.size(); };
 	int Input::getWidth() { return hint.size(); };

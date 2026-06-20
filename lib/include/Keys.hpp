@@ -50,7 +50,7 @@ enum Key : char {
 	APOSTROPHE = 39,
 	COMMA = 44,
 	GRAVE = 96,
-	ENTER = 13,
+	ENTER = 10,
 	BACKSPACE = 127,
 	TAB = 9,
 	CTRL_BACKSPACE = 8,
