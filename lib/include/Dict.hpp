@@ -12,7 +12,8 @@ public:
 	explicit Dict(const std::string& path) {
 		std::ifstream file(path);
 		if (file.fail())
-			throw std::runtime_error("cannot open file");
+			throw std::runtime_error("cannot open dict file: " 
+					"" + path);
 		
 		std::string currentLine;
 		while (std::getline(file, currentLine)) {
@@ -28,4 +29,18 @@ public:
 		return dict[dist(engine)];
 	}
 
+	std::string generateSentence(Dict& dict, int len) {
+		std::string words;
+
+		for (int i = 0; i <= len; i++) {
+			if (i == len) {
+				words.append(dict.randomWord());
+				continue;
+			}
+			std::string space = dict.randomWord() + " ";
+			words.append(space);
+		}
+
+		return words;
+}
 };

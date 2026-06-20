@@ -20,8 +20,6 @@ namespace tui {
 
 	void Input::render(Window& w, int& x, int& y) {
 		for (int i = 0; i < hint.size(); i++) {
-			w.pixelAt(x, y).clearStyles();
-
 			if (i == cursorPosition) {
 				renderCursor(w, x, y);
 			}

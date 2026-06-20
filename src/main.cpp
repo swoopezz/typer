@@ -1,33 +1,58 @@
 #include "Elements.hpp"
-#include <Input.hpp>
 #include "Keys.hpp"
+#include "Input.hpp"
 #include "Window.hpp"
 #include "Util.hpp"
 #include "Dict.hpp"
-#include <memory>
+#include <filesystem>
+#include <optional>
+#include <pwd.h>
 
-std::string generate(Dict& dict, int len) {
-	std::string words;
+bool fileExists(const std::string& path) {
+	std::ifstream f(path);
+	return f.good();
+}
 
-	for (int i = 0; i <= len; i++) {
-		if (i == len) {
-			words.append(dict.randomWord());
-			continue;
-		}
-		std::string space = dict.randomWord() + " ";
-		words.append(space);
+void mkdir(std::filesystem::path& path) {
+	namespace fs = std::filesystem;
+    fs::create_directories(path);
+}
+
+void copy(std::filesystem::path& from, std::filesystem::path& to) {
+	std::filesystem::copy_file(from, to);
+}
+
+std::optional<std::filesystem::path> getHome() {
+	if (const char* home = getenv("HOME")) {
+		if (home[0] != '\0')
+			return std::filesystem::path(home);
 	}
 
-	return words;
+	struct passwd* pw = getpwuid(getuid());
+	if (pw && pw->pw_dir && pw->pw_dir[0] != '\0') {
+        return std::filesystem::path(pw->pw_dir);
+    }
+		
+	return std::nullopt;
+}
+
+void initSettings() {
+	const std::string p = getHome()->string() + "/.local/share/kbchad";
+	std::filesystem::path settingPath(p);
+
+	mkdir(settingPath);
+	copy(std::filesystem::path("static/english.txt"), 
+			std::filesystem::path(p + "/"));
 }
 
 using namespace tui;
 int main() {	
-		
-	auto window = Window(std::make_shared<size::FullScreen>());
-	Dict dict = Dict("/home/user/.dict.txt");	
+	if (!fileExists(getHome()->string() + "/.local/share/kbchad")) initSettings();
 
-	auto input = std::make_shared<Input>(generate(dict, 10));
+	auto window= Window(std::make_shared<size::FullScreen>());
+	Dict dict = Dict( getHome()->string() + "/.local/share/kbchad/english.txt");	
+	auto input = std::make_shared<Input>(
+			dict.generateSentence(dict, 10));
 
 	window.setContent({
 		text("KeyboadChad") | centerX,
@@ -48,7 +73,8 @@ int main() {
 		}
 
 		if (ch == Key::ENTER) {
-			input->updateInput(generate(dict, 10));	
+			input->updateInput(
+					dict.generateSentence(dict, 10));	
 			continue;
 		}
 		input->press(ch);
