@@ -18,6 +18,9 @@ Element centerABS(Element);
 
 Element separator();
 Element buttom(Element);
+Element graphic(std::vector<int> values);
+Element graphic(const std::string& title, std::vector<int> values);
+
 Element operator|(Element elem, Element(*func)(Element));
 
 }

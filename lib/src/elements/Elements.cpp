@@ -2,8 +2,9 @@
 #include "CenterWidget.hpp"
 #include "Separator.hpp"
 #include "TextWidget.hpp"
-#include <Input.hpp>
-#include <Elements.hpp>
+#include "Input.hpp"
+#include "Graphic.hpp"
+#include "Elements.hpp"
 #include <memory>
 
 namespace tui {
@@ -34,6 +35,16 @@ namespace tui {
 	Element buttom(Element elem) {
 		return std::make_shared<Buttom>(elem);
 	}
+
+    Element graphic(std::vector<int> values) {
+        return std::make_shared<Graphic>(values);
+    }
+
+    Element graphic(const std::string& title, std::vector<int> values) {
+        return std::make_shared<Graphic>(title, values);
+    }
+
+
 
 	Element operator|(Element elem, Element(*func)(Element)) {
 		return func(elem);

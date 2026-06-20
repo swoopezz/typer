@@ -1,10 +1,11 @@
 #include "Elements.hpp"
-#include "Keys.hpp"
 #include "Input.hpp"
+#include "WinSize.hpp"
 #include "Window.hpp"
 #include "Util.hpp"
 #include "Dict.hpp"
 #include <filesystem>
+#include <memory>
 #include <optional>
 #include <pwd.h>
 
@@ -47,10 +48,12 @@ void initSettings() {
 
 using namespace tui;
 int main() {	
-	if (!fileExists(getHome()->string() + "/.local/share/kbchad")) initSettings();
+	/*if (!fileExists(getHome()->string() + "/.local/share/kbchad"))
+        initSettings();
 
 	auto window= Window(std::make_shared<size::FullScreen>());
-	Dict dict = Dict( getHome()->string() + "/.local/share/kbchad/english.txt");	
+	Dict dict = Dict( getHome()->string() 
+            + "/.local/share/kbchad/english.txt");	
 	auto input = std::make_shared<Input>(
 			dict.generateSentence(dict, 10));
 
@@ -78,7 +81,15 @@ int main() {
 			continue;
 		}
 		input->press(ch);
-	}
+	}*/
+
+    auto window = Window(std::make_shared<size::FullScreen>());
+    window.setContent({
+        graphic({1, 2, 3, 4, 5, 6, 7})
+    });
+
+    window.render();
+
 	return 0;
 }
 

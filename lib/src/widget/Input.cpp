@@ -5,7 +5,7 @@
 namespace tui {
 
 	void renderCursor(Window& w, int x, int y) {
-		w.pixelAt(x, y).isUnderl = true;
+		w.pixelAt(x, y).isInvert = true;
 	}
 	void applyStyles(
 			int index,
