@@ -18,5 +18,5 @@ cmake -S . -B build && cmake --build build
 build/kbchad # dict will be created automatically
 ```
 
-[!Tip]
+> [!Tip]
 > WordLists directory: $HOME/.local/share/kbchad/wordlists/
