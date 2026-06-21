@@ -109,14 +109,14 @@ namespace tui {
                     renderPixelWithStyle(pixelAt(x, y));
                 }
             }
+            std::cout << std::endl;
+            util::moveCursor(0,0);
 
-		    std::cout << std::endl;
             cacheSize();
         } else {
             renderPixels();
             cacheSize();
-        }
-        
+        } 
         std::swap(oldContent, content); 
 	}
 

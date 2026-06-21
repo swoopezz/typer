@@ -31,7 +31,6 @@ int main() {
 	});
 	
 	util::enableAlterScr();
-	util::hideCursor();
 	while (true) {
 		window.renderDiff();
 		char ch = util::getch();
