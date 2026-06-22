@@ -28,21 +28,11 @@ namespace tui {
 			applyStyles(i, w.pixelAt(x, y), hint, input);
 			x++;
 			if (x > w.getWidth()) {
-				x = 0; y += 1;
+				x = 1;
+                y += 1;
 			}
-		}/*
-		x = 0;
-		y++;
-		while (x < w.getWidth()) {
-			w.pixelAt(x, y).pixelContent = ' ';
-			x++;
 		}
-		x=0;
-		for (char ch : input) {
-			w.pixelAt(x, y).pixelContent = ch;
-			x++;
-		}*/
-	}
+    }
 	
 	void Input::press(char key) {
 		if (isEnd()) return;

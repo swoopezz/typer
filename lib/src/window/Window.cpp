@@ -56,7 +56,7 @@ namespace tui {
     }
 
     void Window::drawElements() {
-		int x = 0; int y = 1;
+		int x = 1; int y = 1;
 
 		for (int i = 0; i < elements.size(); i++) {
 			elements[i]->render(*this, x, y);
@@ -99,7 +99,7 @@ namespace tui {
 
         prepareContent();
         drawElements();
-        if (content.size() == oldContent.size()) {
+        if (content.size() == oldContent.size() && !needUpdate()) {
             for (int x = 0; x < sz->get_width(); x++) {
                 for (int y = 0; y < sz->get_height(); y++) {
                     if (pixelAt(x, y) == oldPixelAt(x, y))

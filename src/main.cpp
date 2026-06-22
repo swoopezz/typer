@@ -22,7 +22,7 @@ int main() {
 	WordList dict = WordList(utils::getHome()->string() 
             + "/.local/share/kbchad/wordlist/english.txt");
 	auto input = std::make_shared<Input>(
-			dict.generateSentence(dict, 10));
+			dict.generateSentence(dict, 30));
 
 	window.setContent({
 		text("KeyboadChad") | centerX,

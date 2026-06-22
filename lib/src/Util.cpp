@@ -52,7 +52,7 @@ namespace tui::util {
 	}
     
     void moveCursor(int x, int y) {
-        std::cout << "\x1B[" << y << ";" << x << "H";
+        std::cout << "\x1B[" << y << ";" << x+1 << "H";
     }
 
 }
