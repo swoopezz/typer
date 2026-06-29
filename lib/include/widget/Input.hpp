@@ -1,6 +1,5 @@
 
 #include <Widget.hpp>
-#include <string>
 
 namespace tui {
 
@@ -11,6 +10,7 @@ private:
 	int cursorPosition = 0;
 	std::string input = "";
 	bool end = false;
+	int misses = 0;
 public:
 	Input(const std::string& hint) :
 		 hint(hint) {};
@@ -21,6 +21,7 @@ public:
 
 	int getWidth() override;
 	int getHeight() override;
+	int getMisses() { return misses; }
 
 	const std::string& getText() const { return input; };
 	void updateInput(const std::string& newHint);

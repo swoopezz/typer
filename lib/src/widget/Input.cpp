@@ -5,8 +5,9 @@
 namespace tui {
 
 	void renderCursor(Window& w, int x, int y) {
-		w.pixelAt(x, y).isInvert = true;
+		w.pixelAt(x, y).isInvert = true; 
 	}
+
 	void applyStyles(
 			int index,
 			Pixel& pixel,
@@ -59,9 +60,11 @@ namespace tui {
 			default:
 				if (cursorPosition < hint.size()) {
 					input+=key;
-					cursorPosition++;
+					if (key == hint[cursorPosition])	misses++;
 
-					if (cursorPosition == hint.size()) end = true;
+					cursorPosition++;	
+					if (cursorPosition == hint.size()) 
+						end = true;
 				}
 				break;
 		}	
@@ -69,6 +72,7 @@ namespace tui {
 	void Input::updateInput(const std::string& newHint) {
 		hint = newHint;
 		cursorPosition = 0;
+		misses = 0;
 		input = "";
 		end = false;
 	}
