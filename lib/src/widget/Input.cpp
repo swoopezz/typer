@@ -60,9 +60,13 @@ namespace tui {
 			default:
 				if (cursorPosition < hint.size()) {
 					input+=key;
-					if (key == hint[cursorPosition])	misses++;
+					cursorPosition++;
+					
 
-					cursorPosition++;	
+					if (input[cursorPosition-1] 
+							!= hint[cursorPosition-1])
+						misses++;
+
 					if (cursorPosition == hint.size()) 
 						end = true;
 				}

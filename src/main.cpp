@@ -74,13 +74,23 @@ int main() {
 				stats.render();
 			}
 			
-			float wpm = config::WORD_COUNT * 60000.0 / 
-				(endTypeTime - startTypeTime);
-			float acc = input->getMisses();
+			float acc;
+			if (input->getMisses() > 0) {
+				acc = 100.0 - (100.0 * input->getMisses() /
+					input->getText().size());
+			} else { acc = 100.0; }
 
-			statText->updateText(
-				"WPM: " + std::to_string(wpm) + " "
-			);
+		
+			float wpm = (config::WORD_COUNT * 60000.0 / 
+			(endTypeTime - startTypeTime)) - input->getMisses();
+			if (acc > 75) {
+				statText->updateText(
+					"WPM: " + std::to_string(wpm) + " " +
+					"ACC: " + std::to_string(acc) + "%"
+				);
+			} else {
+				statText->updateText("Invalide accuracy!");
+			}
 
 			stats.renderDiff();
 			char ch = util::getch();
