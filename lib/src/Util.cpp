@@ -7,7 +7,6 @@ namespace tui::util {
 
 	char getch() {
         char buf = 0;
-        
 		struct termios old = {0};
         
 		if (tcgetattr(0, &old) < 0)
@@ -37,18 +36,19 @@ namespace tui::util {
 	void enableAlterScr() {
 		std::cout << "\x1B[?1049h";
 	}
-	void disablAnterScr() {
+	void disablAlterScr() {
 		std::cout << "\x1B[?1049l";
 	}
+	
+	void clearScr() {
+		std::cout << "\x1B[2J";
+	}
+
 	void hideCursor() {
 		std::cout << "\x1B[?25l";
 	}
 	void showCursor() {
 		std::cout << "\x1B[?24h";
-	}
-
-	void clearScreen() {
-		std::cout << "\x1B[2J";
 	}
     
     void moveCursor(int x, int y) {

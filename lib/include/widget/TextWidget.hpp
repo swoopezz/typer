@@ -7,13 +7,14 @@ namespace tui {
 
 class TextWidget : public Widget {
 private:
-	const std::string text;
+	std::string text;
 public:
 	TextWidget(const std::string& text);
-	void render(Window& w, int& x, int& y) override;
+	void render(Window& w, int& x, int& y) override;	
 	int getWidth() override;
 	int getHeight() override;
 
+	void updateText(const std::string& s) { text = s; }
 	~TextWidget() {}
 };
 }

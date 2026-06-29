@@ -44,8 +44,6 @@ namespace tui {
         return std::make_shared<Graphic>(title, values);
     }
 
-
-
 	Element operator|(Element elem, Element(*func)(Element)) {
 		return func(elem);
 	}

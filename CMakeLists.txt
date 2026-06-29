@@ -9,7 +9,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_subdirectory(lib)
 file(GLOB SOURCES src/*.cpp)
 add_executable(
-	${PROJECT_NAME}
+    ${PROJECT_NAME}
     ${SOURCES}
 )
 
@@ -18,4 +18,3 @@ target_link_libraries(
     PRIVATE
     tui_lib
 )
-

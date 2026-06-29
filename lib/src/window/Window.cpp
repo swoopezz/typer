@@ -14,6 +14,8 @@ namespace tui {
 			lastHeight = size->get_height();
 		}
 
+
+
 	int Window::getWidth() {
 		return sz->get_width();
 	}
@@ -92,7 +94,7 @@ namespace tui {
 
         cacheSize();
 	}
-	
+
 	void Window::renderDiff() {	 
         if (needUpdate())
             updateContent(); 
@@ -118,6 +120,27 @@ namespace tui {
             cacheSize();
         } 
         std::swap(oldContent, content); 
+	}
+	
+	bool Window::empty() const {
+		return elements.empty();
+	}
+
+	void Window::mapping(Key k, const std::function<void(Key)>& callback) {
+		mappings[k] = callback;
+	}
+
+	void Window::press(Key k) {
+		if (!mappings.contains(k)) return;
+		mappings.at(k)(k);
+	}
+
+	void Window::pressOrDefault(Key k,std::function<void(Key)> def) {
+		if (!mappings.contains(k)) {
+			def(k); 
+			return;
+		}
+		mappings.at(k)(k);
 	}
 
     void Window::setContent(Elements& newElems) {

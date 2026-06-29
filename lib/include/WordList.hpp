@@ -31,15 +31,15 @@ public:
 		return dict[dist(engine)];
 	}
 
-	std::string generateSentence(WordList& dict, int len) {
+	std::string generateSentence(int len) {
 		std::string words;
 
 		for (int i = 0; i <= len; i++) {
 			if (i == len) {
-				words.append(dict.randomWord());
+				words.append(randomWord());
 				continue;
 			}
-			std::string space = dict.randomWord() + " ";
+			std::string space = randomWord() + " ";
 			words.append(space);
 		}
 

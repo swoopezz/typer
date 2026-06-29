@@ -1,7 +1,9 @@
 #pragma once
+#include "Keys.hpp"
 #include "WinSize.hpp"
 #include <Pixel.hpp>
 #include <Widget.hpp>
+#include <functional>
 #include <initializer_list>
 #include <memory>
 #include <vector>
@@ -18,6 +20,8 @@ private:
 	
 	std::vector<Pixel> content;
 	std::vector<Pixel> oldContent;
+
+	std::unordered_map<Key, std::function<void(Key)>> mappings;	
 
 	int lastWidht  = 0;
 	int lastHeight = 0;
@@ -40,9 +44,12 @@ public:
 	void setContent(std::initializer_list<Element> content);
 	void setContent(Elements& content);
 	
+	void mapping(Key key,const std::function<void(Key)>& callback);
+	void press(Key k);
+	void pressOrDefault(Key k, std::function<void(Key)>);
+
 	void render();
     void renderDiff();
-	const std::string& toString() const;
-	
+	bool empty() const;
 };
 } // namespace tui

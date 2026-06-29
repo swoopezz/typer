@@ -25,18 +25,4 @@ public:
 		return w.ws_row;
 	}
 };
-
-
-// TODO
-class WrapContent : public WinSize {
-public:
-	int get_width() override {
-		return 50;
-	}
-		
-	int get_height() override {
-		return 30;
-	}
-};
-
 }
