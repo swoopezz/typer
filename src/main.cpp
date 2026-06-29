@@ -12,7 +12,6 @@
 
 void initSettings();
 void setCurrentTimeMs(long& time);
-float ms2min(long ms);
 
 using namespace tui;
 using namespace utils;
@@ -70,7 +69,10 @@ int main() {
 					setCurrentTimeMs(startTypeTime);
 			});
 		} else {
-			if (endTypeTime == 0) setCurrentTimeMs(endTypeTime);
+			if (endTypeTime == 0) {
+				setCurrentTimeMs(endTypeTime);
+				util::clearScr();
+			}
 			
 			float wpm = config::WORD_COUNT * 60000.0 / 
 				(endTypeTime - startTypeTime);
@@ -80,7 +82,7 @@ int main() {
 				"WPM: " + std::to_string(wpm) + " "
 			);
 
-			stats.render();
+			stats.renderDiff();
 			char ch = util::getch();
 			if (ch == Key::ESC) break;
 			stats.press((Key)ch);
@@ -110,6 +112,3 @@ void setCurrentTimeMs(long& time) {
     ).count();
 }
 
-float ms2min(long ms) {
-	return ms/1000.0;
-}
