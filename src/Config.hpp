@@ -1,5 +1,7 @@
+#pragma once
 
 #include <string>
+
 namespace config {
 	
 	static constexpr int WORD_COUNT = 10;
